@@ -432,13 +432,27 @@ fn main() {
 <span style="opacity: 0.3;"><b><span style='color:var(--red,#a00)'>error</span>:</b> could not compile `simple` (bin &quot;simple&quot;) due to 1 previous error; 2 warnings emitted</span>
 </pre>
 
+<!-- --- -->
+
+<blockquote style="text-align: justify; max-width: 64%; padding: 0.5em 1.0em; width: fit-content;">
+
+Don't just tell people, "things are bad", and
+leave them in the dark,<br/>
+<br/>
+Shine a light, and take them to a better place.
+
+</blockquote>
+
 #### Notes
 
-29. Now you may be thinking, Rust is introducing complexity where there wasn't any before.
-30. and you're right!
+34. If you take nothing else away from this talk, take this:
+35. Don't just tell people, "things are bad", and leave them in the dark, (pause) shine a light, and take them to a better place.
 
-<!-- 22. that when a compiler enforces a whole lot more constraints, your instinct is, the compiler is wrong, because that's not how compilers work.
-23. But I promise you, it's a shortcut to discovering the issues you would have to fix anyway. -->
+36. Now you may be thinking, Rust is introducing complexity where there wasn't any before.
+37. and you're right!
+38. But it also provides clarity.
+39. *(excitedly)* Let me show you.
+
 
 ## Clarity
 
@@ -538,13 +552,13 @@ else               { /* success path */ }
 
 ### Clarity: Errors &ndash; Exceptions
 
-```java [1-8]
+```java [1-7]
 try {
-    download("https://example.com/file1.txt");
+    takeBus🚌();
     /* success path 1 */
 }
-catch (UnknownHostException e) { /* failure path 1 */ }
-catch (IOException e)          { /* failure path 2 */ }
+catch (TrafficJamException e) { /* failure path 1 */ }
+catch (SpeedingException e)   { /* failure path 2 */ }
 /* success path 2 */
 ```
 
@@ -556,14 +570,14 @@ catch (IOException e)          { /* failure path 2 */ }
 
 ### Clarity: Errors &ndash; Exceptions
 
-```java [1-9]
+```java [1-7]
 try {
     // which line throws the exception? can't tell 🤷
-    download("https://example.com/file1.txt");
-    download("https://example.com/file2.txt");
+    takeBus🚌();
+    takeTaxi🚕();
 }
-catch (UnknownHostException e) { /* failure path 1 */ }
-catch (IOException e)          { /* failure path 2 */ }
+catch (TrafficJamException e) { /* failure path 1 */ }
+catch (SpeedingException e)   { /* failure path 2 */ }
 ```
 
 #### Notes
@@ -576,13 +590,13 @@ catch (IOException e)          { /* failure path 2 */ }
 ### Clarity: Errors &ndash; Exceptions
 
 ```java [1-7]
-try { download("https://example.com/file1.txt"); }
-catch (UnknownHostException e) { /* failure path 1 */ }
-catch (IOException e)          { /* failure path 2 */ }
+try { takeBus🚌(); }
+catch (TrafficJamException e) { /* failure path 1 */ }
+catch (SpeedingException e)   { /* failure path 2 */ }
 
-try { download("https://example.com/file2.txt"); }
-catch (UnknownHostException e) { /* failure path 3 */ }
-catch (IOException e)          { /* failure path 4 */ }
+try { takeTaxi🚕(); }
+catch (TrafficJamException e) { /* failure path 3 */ }
+catch (SpeedingException e)   { /* failure path 4 */ }
 ```
 
 #### Notes
@@ -595,10 +609,10 @@ catch (IOException e)          { /* failure path 4 */ }
 
 ```java [1-7]
 try {
-    // which of these throws the exception? if at all?
-    // can't tell 😞
-    method1();
-    method2();
+    // which lines throw exceptions, if at all? can't tell 😞
+    walk();
+    run();
+    jump();
 }
 catch (Exception e) {}
 ```
@@ -608,10 +622,10 @@ catch (Exception e) {}
 ### Clarity: Errors &ndash; Exceptions
 
 ```java [1-5]
-public class DownloadException extends Exception {
-    public DownloadException(String message) { /* .. */ }
-    public DownloadException(String message, Throwable cause) { /* .. */ }
-    public DownloadException(Throwable cause) { /* .. */ }
+public class TrafficJamException extends Exception {
+    public TrafficJamException(String message) { /* .. */ }
+    public TrafficJamException(String message, Throwable cause) { /* .. */ }
+    public TrafficJamException(Throwable cause) { /* .. */ }
 }
 ```
 
@@ -659,12 +673,12 @@ public class DownloadException extends Exception {
     3. Added CSS styles to the span manually.
 
     ```rust ignore [1-7]
-    fn download(url: &Url) -> Result<(), DownloadError> { /* .. */ }
+    fn take_bus_🚌() -> Result<(), TransportError> { /* .. */ }
 
     // One variant per kind of error
-    enum DownloadError {
-        DnsLookupFail { url: Url },
-        ConnBroke     { url: Url, n_bytes: usize },
+    enum TransportError {
+        TrafficJam,
+        Speeding { km_h: usize },
     }
     ```
 -->
@@ -678,7 +692,7 @@ public class DownloadException extends Exception {
     overflow-x: auto;
     padding: 1em;
     background: #f0f0f0;
-"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="1"><div class="hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="1"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">download</span>(url: &amp;Url) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">Result</span>&lt;(), DownloadError&gt; { <span class="hljs-comment">/* .. */</span> }</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="2"><div class="hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="2"> </td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="3"><div class="hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="3"><span class="hljs-comment">// One variant per kind of error</span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="4"><div class="hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="4"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">DownloadError</span> {</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="5"><div class="hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="5">    DnsLookupFail { url: Url },</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="6"><div class="hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="6">    ConnBroke     { url: Url, n_bytes: <span class="hljs-type">usize</span> },</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="7"><div class="hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="7">}</td></tr></tbody></table></span></pre>
+"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="1"><div class="hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="1"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">take_bus_🚌</span>() <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">Result</span>&lt;(), TransportError&gt; { <span class="hljs-comment">/* .. */</span> }</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="2"><div class="hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="2"> </td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="3"><div class="hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="3"><span class="hljs-comment">// One variant per kind of error</span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="4"><div class="hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="4"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">TransportError</span> {</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="5"><div class="hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="5">    TrafficJam,</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="6"><div class="hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="6">    Speeding { km_h: <span class="hljs-type">usize</span> },</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="7"><div class="hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="7">}</td></tr></tbody></table></span></pre>
 
 #### Notes
 
@@ -698,7 +712,7 @@ public class DownloadException extends Exception {
     overflow-x: auto;
     padding: 1em;
     background: #f0f0f0;
-"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="1"><div class="hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="1"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">download</span>(url: &amp;Url) <span class="hljs-punctuation">-&gt;</span> <span class="focus_highlight"><span class="hljs-type">Result</span>&lt;(), DownloadError&gt;</span> { <span class="hljs-comment">/* .. */</span> }</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="2"><div class="hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="2"> </td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="3"><div class="hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="3"><span class="hljs-comment">// One variant per kind of error</span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="4"><div class="hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="4"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">DownloadError</span> {</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="5"><div class="hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="5">    DnsLookupFail { url: Url },</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="6"><div class="hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="6">    ConnBroke     { url: Url, n_bytes: <span class="hljs-type">usize</span> },</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="7"><div class="hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="7">}</td></tr></tbody></table></span></pre>
+"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="1"><div class="hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="1"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">take_bus_🚌</span>() <span class="hljs-punctuation">-&gt;</span> <span class="focus_highlight"><span class="hljs-type">Result</span>&lt;(), TransportError&gt;</span> { <span class="hljs-comment">/* .. */</span> }</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="2"><div class="hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="2"> </td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="3"><div class="hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="3"><span class="hljs-comment">// One variant per kind of error</span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="4"><div class="hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="4"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">TransportError</span> {</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="5"><div class="hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="5">    TrafficJam,</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="6"><div class="hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="6">    Speeding { km_h: <span class="hljs-type">usize</span> },</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="7"><div class="hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="7">}</td></tr></tbody></table></span></pre>
 
 <!-- --- -->
 
@@ -713,7 +727,7 @@ public class DownloadException extends Exception {
     overflow-x: auto;
     padding: 1em;
     background: #f0f0f0;
-"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="1"><div class="hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="1"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">download</span>(url: &amp;Url) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">Result</span>&lt;(), <span class="focus_highlight">DownloadError</span>&gt; { <span class="hljs-comment">/* .. */</span> }</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="2"><div class="hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="2"> </td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="3"><div class="hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="3"><span class="hljs-comment">// One variant per kind of error</span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="4"><div class="hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="4"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">DownloadError</span> {</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="5"><div class="hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="5">    DnsLookupFail { url: Url },</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="6"><div class="hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="6">    ConnBroke     { url: Url, n_bytes: <span class="hljs-type">usize</span> },</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="7"><div class="hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="7">}</td></tr></tbody></table></span></pre>
+"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="1"><div class="hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="1"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">take_bus_🚌</span>() <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">Result</span>&lt;(), <span class="focus_highlight">TransportError</span>&gt; { <span class="hljs-comment">/* .. */</span> }</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="2"><div class="hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="2"> </td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="3"><div class="hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="3"><span class="hljs-comment">// One variant per kind of error</span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="4"><div class="hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="4"><span class="hljs-keyword">enum</span> <span class="hljs-title class_"><span class="focus_highlight_soft">TransportError</span></span> {</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="5"><div class="hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="5">    TrafficJam,</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="6"><div class="hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="6">    Speeding { km_h: <span class="hljs-type">usize</span> },</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="7"><div class="hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="7">}</td></tr></tbody></table></span></pre>
 
 <!-- --- -->
 
@@ -728,23 +742,23 @@ public class DownloadException extends Exception {
     overflow-x: auto;
     padding: 1em;
     background: #f0f0f0;
-"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="1"><div class="hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="1"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">download</span>(url: &amp;Url) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">Result</span>&lt;(), DownloadError&gt; { <span class="hljs-comment">/* .. */</span> }</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="2"><div class="hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="2"> </td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="3"><div class="hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="3"><span class="hljs-comment">// One variant per kind of error</span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="4"><div class="hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="4"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">DownloadError</span> {</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="5"><div class="hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="5">    <span class="focus_highlight">DnsLookupFail { url: Url },</span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="6"><div class="hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="6">    ConnBroke     { url: Url, n_bytes: <span class="hljs-type">usize</span> },</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="7"><div class="hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="7">}</td></tr></tbody></table></span></pre>
+"><table class="hljs-ln"><tbody><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="1"><div class="hljs-ln-n" data-line-number="1"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="1"><span class="hljs-keyword">fn</span> <span class="hljs-title function_">take_bus_🚌</span>() <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">Result</span>&lt;(), TransportError&gt; { <span class="hljs-comment">/* .. */</span> }</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="2"><div class="hljs-ln-n" data-line-number="2"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="2"> </td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="3"><div class="hljs-ln-n" data-line-number="3"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="3"><span class="hljs-comment">// One variant per kind of error</span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="4"><div class="hljs-ln-n" data-line-number="4"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="4"><span class="hljs-keyword">enum</span> <span class="hljs-title class_">TransportError</span> {</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="5"><div class="hljs-ln-n" data-line-number="5"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="5">    <span class="focus_highlight">TrafficJam,</span></td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="6"><div class="hljs-ln-n" data-line-number="6"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="6">    Speeding { km_h: <span class="hljs-type">usize</span> },</td></tr><tr class="highlight-line"><td class="hljs-ln-line hljs-ln-numbers" data-line-number="7"><div class="hljs-ln-n" data-line-number="7"></div></td><td class="hljs-ln-line hljs-ln-code" data-line-number="7">}</td></tr></tbody></table></span></pre>
 
 <!-- --- -->
 
 ### Clarity: Errors &ndash; Unambiguous
 
 ```rust ignore [1-11]
-match download("file1.txt") {
-    Ok(())                    => {},
-    Err(DnsLookupFail { .. }) => { /* error path 1 */ },
-    Err(ConnBroke     { .. }) => { /* error path 2 */ },
+match take_bus_🚌() {
+    Ok(())                  => {},
+    Err(TrafficJam)         => { /* error path 1 */ },
+    Err(Speeding { speed }) => { /* error path 2 */ },
 }
 
-match download("file2.txt") {
-    Ok(())                    => {},
-    Err(DnsLookupFail { .. }) => { /* error path 3 */ },
-    Err(ConnBroke     { .. }) => { /* error path 4 */ },
+match take_taxi_🚕() {
+    Ok(())                  => {},
+    Err(TrafficJam)         => { /* error path 3 */ },
+    Err(Speeding { speed }) => { /* error path 4 */ },
 }
 ```
 
@@ -756,14 +770,15 @@ match download("file2.txt") {
 
 ### Clarity: Errors &ndash; Commonized Handling
 
-```rust ignore [1-8]
-let result = download("file1.txt")
-    .and_then(|_| download("file2.txt"));
+```rust ignore [1-9]
+let result = walk()
+    .and_then(|_| take_bus_🚌())
+    .or_else (|_| take_taxi_🚕());
 
 match result {
-    Ok(())                    => {},
-    Err(DnsLookupFail { .. }) => { /* error path 1 */ },
-    Err(ConnBroke     { .. }) => { /* error path 2 */ },
+    Ok(())                  => {},
+    Err(TrafficJam)         => { /* error path 1 */ },
+    Err(Speeding { speed }) => { /* error path 2 */ },
 }
 ```
 
@@ -777,8 +792,8 @@ might_fail()?;
 //          ^
 //          '-- question mark indicates possible error
 
-download("file1.txt")?;
-download("file2.txt")?;
+take_bus_🚌()?;
+take_taxi_🚕()?;
 ```
 
 ## Expressive

@@ -1,4 +1,6 @@
-# Notes 3
+<style>
+li { page-break-inside: avoid; }
+</style>
 
 1. Heya everyone, my name is Azriel, and today's talk is called "The Development Experience Is Different With Rust".
 2. First, learning.
@@ -21,7 +23,7 @@
 16. You learn the difference between Strings and slices, and try to mutate a string in a collection, but then again, Rust says "no".
 17. You learn move semantics, and when you put something into a collection, you need to take it out before you can use it. Still, Rust says "no".
 18. When you borrow it, you need to handle the null case. And are we there yet? "no".
-19. The point is, when you're learning, even for the most basic of things, it can feel like "Rust says no to everything I *know* how to do".
+19. When you're learning, even for the most basic of things, it can feel like "Rust says no to everything I *know* how to do".
 
 20. But I implore you, keep going, and be adamant -- I've never lost to a computer before, and I'm not going to start now.
 21. Like, if you can learn bash, you can learn Rust.
@@ -41,7 +43,7 @@
 33. No, it also teaches you the reason, and shows you the solution, *in colour!*
 
 34. If you take nothing else away from this talk, take this:
-35. Don't just tell people, "things are bad", and leave them in the dark, (pause) shine a light, take them to a better place.
+35. Don't just tell people, "things are bad", and leave them in the dark, (pause) shine a light, and take them to a better place.
 
 36. Now you may be thinking, Rust is introducing complexity where there wasn't any before.
 37. and you're right!
@@ -60,152 +62,153 @@
 
 48. In Rust, the double equals operator, means value equality,
 49. which is what you would've thought it means, *before* you were clever.
+50. So your development experience up till now, has been tainted by complexity that you didn't need to know.
 
-50. Errors. The way errors have been represented has evolved.
+51. Errors. The way errors have been represented has evolved.
 
-51. With sentinel values, which is using a special value within your return type, to mean "error",
-52. the caller has to remember to check for the error value, then diverge the code paths for success and failure.
-53. Example here is, for an integer, the caller has to remember to check for -1,
-54. For a success object, non-`null` represents success,
-55. and for an error object, `null` represents success,
-56. which is just that much more mental effort.
+52. With sentinel values, which is using a special value within your return type, to mean "error",
+53. the caller has to remember to check for the error value, then diverge the code paths for success and failure.
+54. Example here is, for an integer, the caller has to remember to check for -1,
+55. For a success object, non-`null` represents success,
+56. and for an error object, `null` represents success,
+57. which is just that much more mental effort when understanding code.
 
-57. Then came exceptions, which separated the success and failure code paths with compiler support.
+58. Then came exceptions, which separated the success and failure code paths with compiler support.
 
-58. However! `try/catch` blocks can be ambiguous as to which line throws the exception.
-59. To be unambiguous, you'd have to give each line that could err, its own `try/catch` block.
+59. However! `try/catch` blocks can be ambiguous as to which line throws the exception.
+60. To be unambiguous, you'd have to give each line that could fail, its own `try/catch` block.
 
-60. and without IDE highlighting, there's no visible marker for which methods actually throw exceptions.
+61. and without IDE highlighting, there's no visible marker for which functions *actually* throw exceptions.
 
-61. Also, when defining exception classes, there is friction.
-62. Conventionally one should define a file for every exception, and multiple constructors within each,
-63. which is quite a chore, when you have to do 10 of them.
+62. On the definition side, when defining exception classes, there is friction.
+63. Conventionally one should define a file for every exception, and multiple constructors within each,
+64. which is quite a chore, when you have to do 10 of them.
 
-64. So exceptions have made error handling a bit better, but can we further refine this part of programming?
+65. So exceptions have made error handling a bit better, but can we further refine this part of programming?
 
-65. Yes. Yes we can.
+66. Yes. Yes we can.
 
-66. Rust's approach to error handling is to provide a `Result` type, where you pass in your error type.
-67. Different kinds of errors can be written as enum variants, which is far less boilerplate than a file per error variant.
+67. Rust's approach to error handling is to provide a `Result` type, where you pass in your error type.
+68. Different kinds of errors can be written as enum variants, which is far less boilerplate than a file per error variant.
 
-68. On usage, control flow is unambiguous by default,
-69. as every error handling block is kept separate.
+69. On usage, control flow is unambiguous by default,
+70. as every error handling block is kept separate.
 
-70. If it makes sense, you can still commonize the error handling code.
+71. If it makes sense, you can still commonize the error handling code.
 
-71. For functions that can fail, errors that are propagated are marked by a `?` operator.
-72. So when reading code, it is possible to see which function calls can fail.
+72. For functions that can fail, errors that are propagated are marked by a `?` operator.
+73. So when reading code, it is possible to see which function calls can fail.
 
-73. Rust is expressive,
-74. and by expressive I mean, you can take an idea, and write it in code, without much effort.
-75. And the converse as well, you can read the code, and grasp the idea, without much effort.
+74. Rust is expressive,
+75. and by expressive I mean, you can take an idea, and write it in code, without much effort.
+76. And the converse as well, you can read the code, and grasp the idea, without much effort.
 
-76. Which of these two do you read more naturally?
-77. I'll tell you why: it's because when you buy coffee, the barista doesn't say, "That's dollars five, cents fifty".
-78. No they say, "That's five dollars fifty cents".
-79. What you *can* do in Rust, is implement behaviour over existing types, and create API like the second snippet.
-80. (pause) Why is this useful?
+77. Which of these two do you read more naturally?
+78. I'll tell you why: it's because when you buy coffee, the barista doesn't say, "That's dollars five, cents fifty".
+79. No they say, "That's five dollars fifty cents".
+80. What you *can* do in Rust, is implement behaviour over existing types, and create API like the second snippet.
+81. (pause) Why is this useful?
 
-81. Let's say you're writing code to render markdown to a file.
-82. If you inline all the function calls, to understand it, you have to read from the middle out.
-83. You could break them over multiple lines, which looks a bit better.
-84. With Rust traits, you can write code like the third snippet, even when the type is defined externally.
-85. (pause) There's something about that empty space and alignment that makes it more readable, right?
-86. Many libraries provide aesthetic APIs because *it's possible*, so it makes learning to use them much easier.
+82. Let's say you're writing code to render markdown to a file.
+83. If you inline all the function calls, to understand it, you have to read from the middle out.
+84. You could break them over multiple lines, which looks a bit better.
+85. With traits, you can write code like the third snippet, even when the type is defined externally.
+86. (pause) There's something about that empty space and alignment that makes it more readable, right?
+87. Many libraries provide aesthetic APIs because *it's possible*, so it makes learning to use them much easier.
 
-87. Cloning, or another word for deep copying.
+88. Cloning, or another word for deep copying.
 
-88. How do you spell, "clone"?
-89. "C-L-O-N-E"? or "serialize, deserialize"?
-90. No one says, "Dolly the sheep was serialize, deserialized. They say, Dolly the sheep was cloned."
-91. Software is harder to understand, when the expression of the idea is far away, from the idea itself.
-92. And it's also sad when the recommended answer is,
-93. "take this bit of memory, transform it to a different format, do the reverse transformation, and that's your clone".
-94. Why not just, "copy paste", right?
+89. How do you spell, "clone"?
+90. "C-L-O-N-E"? or "serialize, deserialize"?
+91. No one says, "Dolly the sheep was serialize, deserialized. They say, Dolly the sheep was cloned."
+92. Software is harder to understand, when the expression of the idea is far away, from the idea itself.
+93. And it's also sad when the recommended answer is,
+94. "take this bit of memory, transform it to a different format, do the reverse transformation, and that's your clone".
+95. Why not just, "copy paste", right?
 
-95. There *has* been progress, some languages try to make things more expressive.
-96. How do you spell "clone"? "Clone".
-97. It's not guaranteed to do what you want though,
-98. like sometimes it shallow clones, sometimes it doesn't clone everything, and sometimes it fails.
-99. C#'s a bit funny, the docs say, "here's an interface, but don't use it!"
-100. Can we get turn those yellow bits into green?
-101. Of course.
+96. There *has* been progress, some languages try to make things more expressive.
+97. How do you spell "clone"? "Clone".
+98. It's not guaranteed to do what you want though,
+99. like sometimes it shallow clones, sometimes it doesn't clone everything, and sometimes it fails.
+100. C#'s a bit funny, the docs say, "here's an interface, but don't use it!"
+101. Can we get turn those yellow bits into green?
+102. Of course.
 
-102. In Rust, clone is spelt `clone()`, and `clone()`, means clone.
-103. No missed type info, no failures, no surprises. *(high pitch)*
-104. Because the execution matches your understanding, the idea is expressed accurately.
+103. In Rust, clone is spelt `clone()`, and `clone()`, means clone.
+104. No missed type info, no failures, no surprises. *(high pitch)*
+105. Because the execution matches your understanding, the idea is expressed accurately.
 
-105. Because of Rust's clarity and expressiveness, code becomes more comprehendable.
-106. For semantics, you can read things once, and not have to go, it could be this or that.
-107. When there are multiple paths, you know where you came from.
-108. When you want to say something, there's a word for it.
-109. Communicating through software is hard enough, so let's refine our language.
+106. Because of Rust's clarity and expressiveness, code becomes more comprehendable.
+107. For semantics, you can read things once, and not have to go, it could be this or that. No, it's always, *the one*.
+108. When there are multiple paths, you know where you came from. You don't go, "I am on this path. did I come from here, or there? Oh *what* a mystery."
+109. When you want to say something, there's a word for it.
+110. Communicating through software is hard enough, so let's refine our language.
 
-110. Tooling. Rust has a really nice tooling ecosystem.
+111. Tooling. Rust has a really nice tooling ecosystem.
 
-111. It ships with good standard tools, and there is *one* for each purpose.
-112. You know, it's really nice when I want to code, that I can just... code,
-113. and not have to install and learn the new tool of the day. Anyway.
+112. It ships with good standard tools, and there is *one* for each purpose.
+113. You know, it's really nice when I want to code, that I can just... code,
+114. and not have to install and learn the new tool of the day. Anyway.
 
-114. `cargo` is Rust's package manager, and it has really nice UX.
-115. When you tell it "run my application", it downloads dependencies, compiles your project, and runs your application.
-116. And it's cancellable *and* idempotent as well, so you can stop it, and re-run the command, and it will *pick up, where it left off*.
-117. Which takes away that mental check: before I run this, did I miss anything?
-118. It has support for workspaces, so you can manage multiple packages in a single repository.
-119. and it's easy to override dependencies, so you can test your code with a patched version of the dependency.
-120. That is, *so many* things that need to be done, *can* be done, in a supported way.
+115. `cargo` is Rust's package manager, and it has really nice UX.
+116. When you tell it "run my application", it downloads dependencies, compiles your project, and runs your application.
+117. And it's cancellable *and* idempotent as well, so you can stop it, and re-run the command, and it will *pick up, where it left off*.
+118. Which takes away that mental check: before I run this, did I miss anything?
+119. It has support for workspaces, so you can manage multiple packages in a single repository.
+120. and it's easy to override dependencies, so you can test your code with a patched version of the dependency.
+121. That is, *so many* things that need to be done, *can* be done, in a supported way.
 
-121. Rust comes with a linter, called `clippy`.
-122. Clippy teaches you how to write code in the idiomatic Rust way, which can help to make code easier to read, and in some cases, how to avoid bugs.
-123. So it improves your code, *and!* it doesn't even use AI.
-124. It really nice to be taught how to be eloquent with Rust, at a digestable pace.
-125. So in pull requests, more of the discussion can be focused on what we're writing, than on our ability to speak the language.
+122. Rust comes with a linter, called `clippy`.
+123. Clippy teaches you how to write code in the idiomatic Rust way, which can help to make code easier to read, and in some cases, how to avoid bugs.
+124. So it improves your code, *and!* it doesn't even use AI.
+125. It really nice to be taught how to be eloquent with Rust, at a digestable pace.
+126. So in pull requests, more of the discussion can be focused on what we're writing, than on our ability to speak the language.
 
-126. There are *many*, many more tools written by the community.
-127. They are generally easy to set up and integrate into your build pipeline.
-128. What's really nice about all this tooling is, when you run `cargo install $tool_name`, it just works... and *I'm using Windows*.
-129. You don't get an obscure error message, which, plus some keywords, becomes the unique identifier to a stack overflow question, whose solution doesn't work on your computer.
-130. So you spend far less time fiddling with tools, and more time building.
+127. There are *many*, many more tools written by the community.
+128. They are generally easy to set up and integrate into your build pipeline.
+129. What's really nice about all this tooling is, when you run `cargo install $tool_name`, it just works... and *I'm using Windows*.
+130. You don't get an obscure error message, which, plus some keywords, becomes the unique identifier to a stack overflow question, whose solution doesn't work on your computer.
+131. So you spend far less time fiddling with tools, and more time building.
 
-131. Safety. Not the kind you're thinking of, but psychological safety.
+132. Safety. Not the kind you're thinking of, but psychological safety.
 
-132. Here's an interesting... observation: most of my project dependencies have a version of `0.something.something`.
-133. i.e. the major version is always `0`.
-134. and this reveals an interesting trait about the Rust community: people are so concerned about making a promise that they cannot keep, most would never publish a crate as `1.0`.
-135. Like, "aah, I might change the API in the next 20 years! So I'm not going to promise stability now."
-136. In this ecosystem, keeping dependencies up to date is not a burdensome chore.
-137. Periodically, I run `cargo upgrade --incompatible allow --recursive`, and, *again*, (pause) it, just, works.
-138. Stress levels and anxiety for maintenance go down, psychological safety goes up.
-139. So here is a thank you to the many of you, for keeping the promises that you did not make.
+133. Here's an interesting... observation: most of my project dependencies have a version of `0.something.something`.
+134. i.e. the major version is always `0`.
+135. and this reveals an interesting trait about the Rust community: people are so concerned about making a promise that they cannot keep, most would never publish a crate as `1.0`.
+136. Like, "aah, I might change the API in the next 20 years! So I'm not going to promise stability now."
+137. In this ecosystem, keeping dependencies up to date is not a burdensome chore.
+138. Periodically, I run `cargo upgrade --incompatible allow --recursive`, and, *again*, (pause) it, just, works.
+139. Stress levels and anxiety for maintenance go down, psychological safety goes up.
+140. So here is a thank you to the many of you, for keeping the promises that you did not make.
 
-140. Finally, the experience beyond the code.
-141. When you interact with the community, like ask a question in the users forum, no matter how simple or complex it is, someone's going to answer, and they answer with empathy and intellect.
-142. There's no sentiment of, "Don't ask stupid questions! or, your question must be this good, before we answer you".
-143. So not only do you receive the answer, you actually *feel* helped.
+141. Finally, the experience beyond the code.
+142. When you interact with the community, like ask a question in the users forum, no matter how simple or complex it is, someone's going to answer, and they answer with empathy and intellect.
+143. There's no sentiment of, "Don't ask stupid questions! or, your question must be this good, before we answer you".
+144. So not only do you receive the answer, you actually *feel* helped.
 
-144. To summarize, this talk isn't intended to diminish the value of any other language.
-145. There are *decades* of learnings from so many languages.
+145. To summarize, this talk isn't intended to diminish the value of any other language.
+146. There are *decades* of learnings from so many languages.
 
-146. Not just what worked, but also what didn't work.
+147. Not just what worked, but also what didn't work.
 
-147. Rust has the late starter advantage.
+148. Rust has the late starter advantage.
 
-148. It has the privileged position of taking the patterns that work for today's applications, and not having to support the patterns that don't.
-149. Without the experimentation and lessons from all the other languages, there would *be* no Rust.
-150. So it is simply a progression of technology, not a pedestal to stand on.
+149. It has the privileged position of taking the patterns that work for today's applications, and not having to support the patterns that don't.
+150. Without the experimentation and lessons from all the other languages, there would *be* no Rust.
+151. So it is simply a progression of technology, not a pedestal to stand on.
 
-151. Imagine. I'd like you to,
+152. Imagine. I'd like you to,
 
-152. Imagine never seeing a null pointer exception ever again.
-153. Imagine reading code, and not needing to guess its meaning, because there's only one.
-154. Imagine upgrading versions without a second thought, and going about your day.
-155. Imagine asking for help, and *being helped*.
-156. (pause). With Rust, you don't have to imagine, that's the reality.
+153. Imagine never seeing a null pointer exception ever again.
+154. Imagine reading code, and not needing to guess its meaning, because there's only one.
+155. Imagine upgrading versions without a second thought, and going about your day.
+156. Imagine asking for help, and *being helped*.
+157. (pause). With Rust, you don't have to imagine, that's the reality.
 
-157. And if you think you're a late starter, well, *you* have the late starter advantage.
-158. You don't have to deal with lexical lifetimes, where we had to add braces around borrows.
-159. You don't have to check the build table for which nightly has `clippy`.
-160. You no longer have to wait and see if Rust is just another hype-train -- take away the hype, the goodness is real.
+158. And if you think you're a late starter, well, *you* have the late starter advantage.
+159. You don't have to deal with lexical lifetimes, where we had to add braces around borrows.
+160. You don't have to check the build table for which nightly has `clippy`.
+161. You no longer have to wait and see if Rust is just another hype-train -- take away the hype, the goodness is real.
 
-161. If you haven't tried Rust yet, give it a go, and enjoy the experience.
-162. Peace.
+162. If you haven't tried Rust yet, give it a go, and enjoy the experience.
+163. Peace.
