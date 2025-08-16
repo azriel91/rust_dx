@@ -1012,5 +1012,5 @@ cargo install $tool_name
 
 <img src="dove.svg" width="500" />
 
-<small>🌐: https://azriel.im/rust_dx/slides.html</small><br />
-<small>🐙: https://github.com/azriel91/rust_dx</small>
+<small>🌐: <a href="https://azriel.im/rust_dx">azriel.im/rust_dx</a></small><br />
+<small>🐙: <a href="https://github.com/azriel91/rust_dx">github.com/azriel91/rust_dx</a></small>

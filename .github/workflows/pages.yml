@@ -64,6 +64,10 @@ jobs:
       - name: Build slides
         run: ./build.sh
 
+      # Hack: Replace mdslides generated index.html with the slides
+      - name: Replace index.html
+        run: cp html/slides.html html/index.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
