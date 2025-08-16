@@ -2,75 +2,6 @@
 
 Azriel Hoh
 
-## Learning
-
-<!-- --- -->
-
-### Learning: Skill / Time Graph
-
-![](learning_skill_graph_01_empty.svg)
-
-<!-- --- -->
-
-### Learning: First Language
-
-![](learning_skill_graph_02_first_lang.svg)
-
-<!-- --- -->
-
-### Learning: First Language
-
-![](learning_skill_graph_03_first_lang_time.svg)
-
-<!-- --- -->
-
-### Learning: Other Languages
-
-![](learning_skill_graph_04_other_languages.svg)
-
-<!-- --- -->
-
-### Learning: Other Languages
-
-![](learning_skill_graph_05_other_languages_1_week.svg)
-
-<!-- --- -->
-
-### Learning: Other Languages
-
-![](learning_skill_graph_06_other_languages_1_month.svg)
-
-<!-- --- -->
-
-### Learning: Rust
-
-![](learning_skill_graph_04_other_languages.svg)
-
-<!-- --- -->
-
-### Learning: Rust
-
-![](learning_skill_graph_07_rust_01_start.svg)
-
-<!-- --- -->
-
-### Learning: Rust
-
-![](learning_skill_graph_07_rust_02_3_months.svg)
-
-<!-- --- -->
-
-### Learning: Rust
-
-![](learning_skill_graph_07_rust_03_1_year.svg)
-
-<!-- --- -->
-
-### Learning: Rust
-
-![](learning_skill_graph_07_rust_04_beyond.svg)
-
-
 ## Learning Rust
 
 <!-- --- -->
@@ -285,174 +216,12 @@ fn main() {
 
 28. Hopefully that makes your learning experience better.
 
-<!-- --- -->
-
-### Keep Going: Feedback
-
-<pre class="terminal">
-<b><span style='color:var(--bright-red,#f55)'>error[E0384]</span><span style='color:var(--bright-white,#fff)'>: cannot assign twice to immutable variable `x`</span></b>
- <b><span style='color:var(--bright-cyan,#5ff)'>--&gt; </span></b>src\main.rs:3:5
-  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>
-<b><span style='color:var(--bright-cyan,#5ff)'>2</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>     let x = 0;
-  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>         <b><span style='color:var(--bright-cyan,#5ff)'>-</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>first assignment to `x`</span></b>
-<b><span style='color:var(--bright-cyan,#5ff)'>3</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>     x += 1;
-  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>     <b><span style='color:var(--bright-red,#f55)'>^^^^^^</span></b> <b><span style='color:var(--bright-red,#f55)'>cannot assign twice to immutable variable</span></b>
-  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>
-<b><span style='color:var(--bright-cyan,#5ff)'>help</span></b>: consider making this binding mutable
-  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>
-<b><span style='color:var(--bright-cyan,#5ff)'>2</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>| </span></b>    let <span style='color:var(--bright-green,#5f5)'>mut </span>x = 0;
-  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>         <span style='color:var(--bright-green,#5f5)'>+++</span>
-
-<b><span style='color:var(--bright-white,#fff)'>For more information about this error, try `rustc --explain E0384`.</span></b>
-<b><span style='color:var(--yellow,#a60)'>warning</span>:</b> `simple` (bin &quot;simple&quot;) generated 2 warnings
-<b><span style='color:var(--red,#a00)'>error</span>:</b> could not compile `simple` (bin &quot;simple&quot;) due to 1 previous error; 2 warnings emitted
-</pre>
-
-#### Notes
-
-29. Let's take a look at the compiler message again.
-
-<!-- --- -->
-
-### Keep Going: Feedback
-
-<pre class="terminal">
-<b><span style='color:var(--bright-red,#f55)'>error[E0384]</span>
- <b><span style='color:var(--bright-cyan,#5ff)'>--&gt; </span></b>src\main.rs:3:5
-  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>
-<b><span style='color:var(--bright-cyan,#5ff)'>3</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>     x += 1;
-  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>     <b><span style='color:var(--bright-red,#f55)'>^^^^^^</span></b>
-
-<b><span style='color:var(--bright-white,#fff)'>For more information about this error, try `rustc --explain E0384`.</span></b>
-<b><span style='color:var(--yellow,#a60)'>warning</span>:</b> `simple` (bin &quot;simple&quot;) generated 2 warnings
-<b><span style='color:var(--red,#a00)'>error</span>:</b> could not compile `simple` (bin &quot;simple&quot;) due to 1 previous error; 2 warnings emitted
-</pre>
-
-#### Notes
-
-30. Normally I would expect a compiler message to tell me, "azriel, here's where you're wrong!" and that's it!
-
-<!-- --- -->
-
-### Keep Going: Feedback
-
-<pre class="terminal">
-<b><span style='color:var(--bright-red,#f55)'>error[E0384]</span><span style='color:var(--bright-white,#fff)'>: cannot assign twice to immutable variable `x`</span></b>
- <b><span style='color:var(--bright-cyan,#5ff)'>--&gt; </span></b>src\main.rs:3:5
-  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>
-<b><span style='color:var(--bright-cyan,#5ff)'>2</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>     let x = 0;
-  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>         <b><span style='color:var(--bright-cyan,#5ff)'>-</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>first assignment to `x`</span></b>
-<b><span style='color:var(--bright-cyan,#5ff)'>3</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>     x += 1;
-  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>     <b><span style='color:var(--bright-red,#f55)'>^^^^^^</span></b> <b><span style='color:var(--bright-red,#f55)'>cannot assign twice to immutable variable</span></b>
-  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>
-<b><span style='color:var(--bright-cyan,#5ff)'>help</span></b>: consider making this binding mutable
-  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>
-<b><span style='color:var(--bright-cyan,#5ff)'>2</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>| </span></b>    let <span style='color:var(--bright-green,#5f5)'>mut </span>x = 0;
-  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>         <span style='color:var(--bright-green,#5f5)'>+++</span>
-
-<b><span style='color:var(--bright-white,#fff)'>For more information about this error, try `rustc --explain E0384`.</span></b>
-<b><span style='color:var(--yellow,#a60)'>warning</span>:</b> `simple` (bin &quot;simple&quot;) generated 2 warnings
-<b><span style='color:var(--red,#a00)'>error</span>:</b> could not compile `simple` (bin &quot;simple&quot;) due to 1 previous error; 2 warnings emitted
-</pre>
-
-#### Notes
-
-29. But when you look at the message from the Rust compiler, it says,
-
-<!-- --- -->
-
-### Keep Going: Feedback
-
-<pre class="terminal">
-<span style="opacity: 0.3;"><b><span style='color:var(--bright-red,#f55)'>error[E0384]</span><span style='color:var(--bright-white,#fff)'>: cannot assign twice to immutable variable `x`</span></b></span>
-<span style="opacity: 1.0;"> <b><span style='color:var(--bright-cyan,#5ff)'>--&gt; </span></b>src\main.rs:3:5</span>
-<span style="opacity: 0.3;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b></span>
-<span style="opacity: 0.3;"><b><span style='color:var(--bright-cyan,#5ff)'>2</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>     let x = 0;</span>
-<span style="opacity: 0.3;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>         <b><span style='color:var(--bright-cyan,#5ff)'>-</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>first assignment to `x`</span></b></span>
-<span style="opacity: 1.0;"><b><span style='color:var(--bright-cyan,#5ff)'>3</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>     x += 1;</span>
-<span style="opacity: 1.0;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b></span>     <b><span style="opacity: 1.0;"><span style='color:var(--bright-red,#f55)'>^^^^^^</span></span></b> <b><span style="opacity: 0.3;"><span style='color:var(--bright-red,#f55)'>cannot assign twice to immutable variable</span></span></b>
-<span style="opacity: 1.0;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b></span>
-<span style="opacity: 0.3;"><b><span style='color:var(--bright-cyan,#5ff)'>help</span></b>: consider making this binding mutable</span>
-<span style="opacity: 0.3;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b></span>
-<span style="opacity: 0.3;"><b><span style='color:var(--bright-cyan,#5ff)'>2</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>| </span></b>    let <span style='color:var(--bright-green,#5f5)'>mut </span>x = 0;</span>
-<span style="opacity: 0.3;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>         <span style='color:var(--bright-green,#5f5)'>+++</span></span>
-<span style="opacity: 0.3;"></span>
-<span style="opacity: 0.3;"><b><span style='color:var(--bright-white,#fff)'>For more information about this error, try `rustc --explain E0384`.</span></b></span>
-<span style="opacity: 0.3;"><b><span style='color:var(--yellow,#a60)'>warning</span>:</b> `simple` (bin &quot;simple&quot;) generated 2 warnings</span>
-<span style="opacity: 0.3;"><b><span style='color:var(--red,#a00)'>error</span>:</b> could not compile `simple` (bin &quot;simple&quot;) due to 1 previous error; 2 warnings emitted</span>
-</pre>
-
-#### Notes
-
-31. "azriel, here's where you're wrong!", and, and, "this is why, and here is how to fix it."
-
-<!-- --- -->
-
-### Keep Going: Feedback
-
-<pre class="terminal">
-<span style="opacity: 1.0;"><b><span style='color:var(--bright-red,#f55)'>error[E0384]</span><span style='color:var(--bright-white,#fff)'>: cannot assign twice to immutable variable `x`</span></b></span>
-<span style="opacity: 0.3;"> <b><span style='color:var(--bright-cyan,#5ff)'>--&gt; </span></b>src\main.rs:3:5</span>
-<span style="opacity: 0.3;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b></span>
-<span style="opacity: 0.3;"><b><span style='color:var(--bright-cyan,#5ff)'>2</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>     let x = 0;</span>
-<span style="opacity: 0.3;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>         <b><span style='color:var(--bright-cyan,#5ff)'>-</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>first assignment to `x`</span></b></span>
-<span style="opacity: 0.3;"><b><span style='color:var(--bright-cyan,#5ff)'>3</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>     x += 1;</span>
-<span style="opacity: 0.3;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b></span>     <b><span style="opacity: 0.3;"><span style='color:var(--bright-red,#f55)'>^^^^^^</span></span></b> <b><span style="opacity: 1.0;"><span style='color:var(--bright-red,#f55)'>cannot assign twice to immutable variable</span></span></b>
-<span style="opacity: 0.3;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b></span>
-<span style="opacity: 0.3;"><b><span style='color:var(--bright-cyan,#5ff)'>help</span></b>: consider making this binding mutable</span>
-<span style="opacity: 0.3;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b></span>
-<span style="opacity: 0.3;"><b><span style='color:var(--bright-cyan,#5ff)'>2</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>| </span></b>    let <span style='color:var(--bright-green,#5f5)'>mut </span>x = 0;</span>
-<span style="opacity: 0.3;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>         <span style='color:var(--bright-green,#5f5)'>+++</span></span>
-<span style="opacity: 0.3;"></span>
-<span style="opacity: 1.0;"><b><span style='color:var(--bright-white,#fff)'>For more information about this error, try `rustc --explain E0384`.</span></b></span>
-<span style="opacity: 0.3;"><b><span style='color:var(--yellow,#a60)'>warning</span>:</b> `simple` (bin &quot;simple&quot;) generated 2 warnings</span>
-<span style="opacity: 0.3;"><b><span style='color:var(--red,#a00)'>error</span>:</b> could not compile `simple` (bin &quot;simple&quot;) due to 1 previous error; 2 warnings emitted</span>
-</pre>
-
-<!-- --- -->
-
-### Keep Going: Feedback
-
-<pre class="terminal">
-<span style="opacity: 0.3;"><b><span style='color:var(--bright-red,#f55)'>error[E0384]</span><span style='color:var(--bright-white,#fff)'>: cannot assign twice to immutable variable `x`</span></b></span>
-<span style="opacity: 0.3;"> <b><span style='color:var(--bright-cyan,#5ff)'>--&gt; </span></b>src\main.rs:3:5</span>
-<span style="opacity: 1.0;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b></span>
-<span style="opacity: 1.0;"><b><span style='color:var(--bright-cyan,#5ff)'>2</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>     let x = 0;</span>
-<span style="opacity: 1.0;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>         <b><span style='color:var(--bright-cyan,#5ff)'>-</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>first assignment to `x`</span></b></span>
-<span style="opacity: 0.3;"><b><span style='color:var(--bright-cyan,#5ff)'>3</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>     x += 1;</span>
-<span style="opacity: 0.3;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b></span>     <b><span style="opacity: 0.3;"><span style='color:var(--bright-red,#f55)'>^^^^^^</span></span></b> <b><span style="opacity: 1.0;"><span style='color:var(--bright-red,#f55)'>cannot assign twice to immutable variable</span></span></b>
-<span style="opacity: 0.3;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b></span>
-<span style="opacity: 1.0;"><b><span style='color:var(--bright-cyan,#5ff)'>help</span></b>: consider making this binding mutable</span>
-<span style="opacity: 1.0;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b></span>
-<span style="opacity: 1.0;"><b><span style='color:var(--bright-cyan,#5ff)'>2</span></b> <b><span style='color:var(--bright-cyan,#5ff)'>| </span></b>    let <span style='color:var(--bright-green,#5f5)'>mut </span>x = 0;</span>
-<span style="opacity: 1.0;">  <b><span style='color:var(--bright-cyan,#5ff)'>|</span></b>         <span style='color:var(--bright-green,#5f5)'>+++</span></span>
-<span style="opacity: 1.0;"></span>
-<span style="opacity: 0.3;"><b><span style='color:var(--bright-white,#fff)'>For more information about this error, try `rustc --explain E0384`.</span></b></span>
-<span style="opacity: 0.3;"><b><span style='color:var(--yellow,#a60)'>warning</span>:</b> `simple` (bin &quot;simple&quot;) generated 2 warnings</span>
-<span style="opacity: 0.3;"><b><span style='color:var(--red,#a00)'>error</span>:</b> could not compile `simple` (bin &quot;simple&quot;) due to 1 previous error; 2 warnings emitted</span>
-</pre>
-
-<!-- --- -->
-
-<blockquote style="text-align: justify; max-width: 64%; padding: 0.5em 1.0em; width: fit-content;">
-
-Don't just tell people, "things are bad", and
-leave them in the dark,<br/>
-<br/>
-Shine a light, and take them to a better place.
-
-</blockquote>
-
-#### Notes
-
-34. If you take nothing else away from this talk, take this:
-35. Don't just tell people, "things are bad", and leave them in the dark, (pause) shine a light, and take them to a better place.
-
 36. Now you may be thinking, Rust is introducing complexity where there wasn't any before.
 37. and you're right!
 38. But it also provides clarity.
 39. *(excitedly)* Let me show you.
 
+<!-- --- -->
 
 ## Clarity
 
@@ -465,7 +234,16 @@ Shine a light, and take them to a better place.
 
 ### Clarity: Equality
 
-### 🥤 == 🥤
+<div class="eq_centre">
+
+|                    | Equal? 🟢/🟣 |
+|--------------------|--------------|
+| 123 == 123         |       ❔     |
+| "abc" == "abc"     |       ❔     |
+| [1] == [1]         |       ❔     |
+| Data(1) == Data(1) |       ❔     |
+
+</div>
 
 #### Notes
 
@@ -478,12 +256,16 @@ Shine a light, and take them to a better place.
 
 ### Clarity: Equality
 
-| Language               | ☕<br/>Java | 🌐 JS | 🐍 Python | 🦀 Rust |
-|------------------------|-----------|-------|-----------|----------|
-| 123 == 123             |     🟢    |   🟢  |     🟢    |    ❔   |
-| "abc" == "ab" + "c"    | sometimes |   🟢  |     🟢    |    ❔   |
-| [1] == [1]             |     🟣    |   🟣  |     🟢    |    ❔   |
-| Data(123) == Data(123) |     🟣    |   🟣  |     🟣    |    ❔   |
+<div class="eq_centre">
+
+| Language           | ☕ Java   | 🌐 JS | 🐍 Python | 🦀 Rust |
+|--------------------|-----------|-------|-----------|----------|
+| 123 == 123         |     🟢    |   🟢  |    🟢    |    ❔    |
+| "abc" == "abc"     | sometimes |   🟢  |    🟢    |    ❔    |
+| [1] == [1]         |     🟣    |   🟣  |    🟢    |    ❔    |
+| Data(1) == Data(1) |     🟣    |   🟣  |    🟣    |    ❔    |
+
+</div>
 
 #### Notes
 
@@ -505,12 +287,16 @@ Shine a light, and take them to a better place.
 
 ### Clarity: Equality
 
-| Language               | ☕<br/>Java | 🌐 JS | 🐍 Python | 🦀 Rust |
-|------------------------|-----------|-------|-----------|----------|
-| 123 == 123             |     🟢    |   🟢  |     🟢    |    🟢   |
-| "abc" == "ab" + "c"    | sometimes |   🟢  |     🟢    |    🟢   |
-| [1] == [1]             |     🟣    |   🟣  |     🟢    |    🟢   |
-| Data(123) == Data(123) |     🟣    |   🟣  |     🟣    |    🟢   |
+<div class="eq_centre">
+
+| Language           | ☕ Java   | 🌐 JS | 🐍 Python | 🦀 Rust |
+|--------------------|-----------|-------|-----------|----------|
+| 123 == 123         |     🟢    |   🟢  |    🟢    |    🟢    |
+| "abc" == "abc"     | sometimes |   🟢  |    🟢    |    🟢    |
+| [1] == [1]         |     🟣    |   🟣  |    🟢    |    🟢    |
+| Data(1) == Data(1) |     🟣    |   🟣  |    🟣    |    🟢    |
+
+</div>
 
 #### Notes
 
@@ -530,16 +316,16 @@ Shine a light, and take them to a better place.
 
 ```java [1-15]
 int fileSize = readFileSize("file.txt");
-if (fileSize == -1) { /* error path */ }
-else                { /* success path */ }
+if (fileSize != -1) { /* success path */ }
+else                { /* error path */ }
 
 Metadata metadata = getMetadata("file.txt");
 if (metadata != null) { /* success path */ }
 else                  { /* error path */ }
 
 Error error = process("file.txt");
-if (error != null) { /* error path */ }
-else               { /* success path */ }
+if (error == null) { /* success path */ }
+else               { /* error path */ }
 ```
 
 
@@ -574,7 +360,7 @@ catch (SpeedingException e)   { /* failure path 2 */ }
 try {
     // which line throws the exception? can't tell 🤷
     takeBus🚌();
-    takeTaxi🚕();
+    takeCab🚕();
 }
 catch (TrafficJamException e) { /* failure path 1 */ }
 catch (SpeedingException e)   { /* failure path 2 */ }
@@ -594,7 +380,7 @@ try { takeBus🚌(); }
 catch (TrafficJamException e) { /* failure path 1 */ }
 catch (SpeedingException e)   { /* failure path 2 */ }
 
-try { takeTaxi🚕(); }
+try { takeCab🚕(); }
 catch (TrafficJamException e) { /* failure path 3 */ }
 catch (SpeedingException e)   { /* failure path 4 */ }
 ```
@@ -640,17 +426,17 @@ public class TrafficJamException extends Exception {
 
 **Sentinel values**
 
-1. ✅ Indicate error to caller
+1. ✅ Communicate success/failure
 
 **Exceptions**
 
-2. ✅ Compile time feedback for success/failure paths
+2. ✅ Compile time feedback
 3. ☑️ Unambiguous code paths
 
 **Can we have**
 
-4. ❔ Low effort to define error types
-5. ❔ Visibility where errors are propagated from
+4. ❔ Low effort to define errors
+5. ❔ Show where errors come from
 
 
 #### Notes
@@ -755,7 +541,7 @@ match take_bus_🚌() {
     Err(Speeding { speed }) => { /* error path 2 */ },
 }
 
-match take_taxi_🚕() {
+match take_cab_🚕() {
     Ok(())                  => {},
     Err(TrafficJam)         => { /* error path 3 */ },
     Err(Speeding { speed }) => { /* error path 4 */ },
@@ -773,7 +559,7 @@ match take_taxi_🚕() {
 ```rust ignore [1-9]
 let result = walk()
     .and_then(|_| take_bus_🚌())
-    .or_else (|_| take_taxi_🚕());
+    .or_else (|_| take_cab_🚕());
 
 match result {
     Ok(())                  => {},
@@ -793,8 +579,10 @@ might_fail()?;
 //          '-- question mark indicates possible error
 
 take_bus_🚌()?;
-take_taxi_🚕()?;
+take_cab_🚕()?;
 ```
+
+<!-- --- -->
 
 ## Expressive
 
@@ -839,11 +627,17 @@ let result =
 //  4         3      2     1           2            3             4
 ```
 
+<div class="fragment">
+
 ```rust ignore [1-3]
 let parsed = parse("markdown", parse_opts);
 let rendered = render(parsed, render_opts);
 let result = fs::write(rendered, path)?;
 ```
+
+</div>
+
+<div class="fragment">
 
 ```rust ignore [1-4]
 let result = "markdown"  // 1
@@ -851,6 +645,8 @@ let result = "markdown"  // 1
     .render(render_opts) // 3
     .write(path)?;       // 4
 ```
+
+</div>
 
 #### Notes
 
@@ -868,33 +664,42 @@ let result = "markdown"  // 1
 
 ### Expressive: Cloning
 
-```js fit [1-2]
-let data = { a: 1 };
-let other = deserialize(serialize(data));
+```js fit [1-3]
+let data = "🐑 dolly";
+let stuff = serialize(data);
+let dataClone = deserialize(stuff);
 ```
+
+<div class="hidden">
 
 * 🔴 Idea to Code: "clone is spelt ser..de.."
 * 🟡 Code to Idea: "ser..de.. makes a clone"
 * 🔴 Not performant
+
+</div>
 
 <!-- --- -->
 
 ### Expressive: Cloning
 
 ```js fit [1-2]
-let data = { a: 1 };
-let other = structuredClone(data);
+let data = "🐑 dolly";
+let dataClone = structuredClone(data);
 ```
 
 ```cs fit [1-3]
 class Data: ICloneable { /* .. */ }
-Data data = new Data(123);
-Data other = data.Clone();
+Data data = new Data("🐑 dolly");
+Data dataClone = data.Clone();
 ```
+
+<div class="hidden">
 
 * 🟢 Idea to Code: "clone is spelt `*Clone()`"
 * 🟡 Code to Idea: "`*Clone()` might clone, or fail"
 * 🟡 Surprising: `*Clone()` *kind of* clones.
+
+</div>
 
 <!-- --- -->
 
@@ -904,23 +709,27 @@ Data other = data.Clone();
 #[derive(Clone)]
 struct Data(String);
 
-let data = Data("hello".into());
-let other = data.clone();
+let data = Data("🐑 dolly".into());
+let data_clone = data.clone();
 ```
+
+<div class="hidden">
 
 * 🟢 Idea to Code: "clone is spelt `clone()`"
 * 🟢 Code to Idea: "`clone()` means clone"
 * 🟢 Removed the surprises.
 
+</div>
+
 <!-- --- -->
 
 ### Clarity and Expressiveness
 
-| Item            | Rust's bias                               |
-| --------------- | ----------------------------------------- |
-| 🧠 Semantics    | Favour one expected meaning (unambiguity) |
-| 🔁 Control Flow | Make visible divergence and convergence   |
-| 🎭 Expression   | Call things by name, not by how it works  |
+| Item            | Bias                                     |
+| --------------- | ---------------------------------------- |
+| 🧠 Semantics    | Only one meaning                         |
+| 🔁 Control Flow | Visible divergence and convergence       |
+| 🎭 Expression   | Call things by name, not by how it works |
 
 ## Tooling
 
@@ -932,8 +741,8 @@ let other = data.clone();
 
 ### Tooling: Standard
 
-* 🐚 `rustup`: Rust version manager
-* 🧹 `rustfmt`: Code formatter
+* 🐚 `rustup`: Version manager
+* 🧹 `rustfmt`: Formatter
 * 📝 `rustdoc`: Documentation generator
 * 📦 `cargo`: Package manager
 * 📎 `clippy`: Linter
@@ -1004,11 +813,9 @@ uuid = { path = "../uuid" }
 
 ### Tooling: Others
 
-Many tools by the community
+* **Compliance:** 🛡️ audit, 🙅 deny, ❓ about
 
-* **Compliance:** (cargo-) 🛡️ audit, 🙅 deny, ❓ about
-
-* **Workflow:** `watchexec`, hot reloading, static site generators
+* **Workflow:** hot reloading, site generators
 
 * **Modernized:** `bat`, `btm`, `fd-find`, `lsd`, `rg`, `sd`, `zoxide`
 
