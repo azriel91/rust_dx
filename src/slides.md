@@ -1014,3 +1014,42 @@ cargo install $tool_name
 
 <small>🌐: <a href="https://azriel.im/rust_dx">azriel.im/rust_dx</a></small><br />
 <small>🐙: <a href="https://github.com/azriel91/rust_dx">github.com/azriel91/rust_dx</a></small>
+
+## Q & A
+
+<img src="dove.svg" width="500" />
+
+<small>🌐: <a href="https://azriel.im/rust_dx">azriel.im/rust_dx</a></small><br />
+<small>🐙: <a href="https://github.com/azriel91/rust_dx">github.com/azriel91/rust_dx</a></small>
+
+## Q & A: What Have I Built
+
+<!-- --- -->
+
+### Q & A: Will: A Game
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JOZ9RiCFzdA?si=YhrEKzSgUcSzvUsN&amp;start=8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Hc8EtqrlJsE?si=-JrGYsqtuaS4tB7b&amp;start=36" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<!-- width="850" height="478" -->
+
+<!-- --- -->
+
+### Q & A: Peace: Automation Framework
+
+<video controls="controls" width="850">
+    <source src="2025-01-26_envman_simple_cycle.mp4" type="video/mp4" />
+    <object data="2025-01-26_envman_simple_cycle.mp4" ></object>
+</video>
+
+<!-- --- -->
+
+### Q & A: Dot IX: Client Side Diagramming
+
+<object
+    type="image/svg+xml"
+    data="envman_web_example.svg"
+    width="1024"></object>
+
+[🎨 azriel.im/dot_ix](https://azriel.im/dot_ix/)

@@ -5,5 +5,6 @@ mdslides --mdbook-path . `
 
 cp src/*.svg ./html
 cp src/*.png ./html
+cp src/*.mp4 ./html
 cp -Recurse -Force src/js ./html
 cp -Recurse -Force src/css ./html

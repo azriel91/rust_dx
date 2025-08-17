@@ -6,7 +6,7 @@ mdslides --mdbook-path . \
   --template template.html \
   --index-template index_template.html
 
-for ext in svg png
+for ext in svg png mp4
 do
   find src/ -type f -name "*.${ext}" \
     | cut -d '/' -f 2- \
