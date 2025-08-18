@@ -186,7 +186,7 @@ li { page-break-inside: avoid; }
 
 140. Imagine never seeing a null pointer exception ever again.
 141. Imagine reading code, and not needing to guess its meaning, because there's only one.
-142. Imagine upgrading versions without a second thought, and going about your day.
+142. Imagine upgrading all your software, and *it just works*.
 143. Imagine asking for help, and *being helped*.
 
 144. (pause). With Rust, you don't have to imagine, take away the hype, that's the reality.
