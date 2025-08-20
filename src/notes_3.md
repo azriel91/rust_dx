@@ -33,10 +33,10 @@ li { page-break-inside: avoid; }
 23. This is how you know you're a software developer.
 24. *(take out two canned drinks)*
 25. Are these equal? *(smile)*
-26. In other words, what does equality mean?
+26. They look the same. You know what else looks the same?
 
-27. The meaning of the double equals operator varies with the type and the language.
-28. That is, value equality, and referential equality, and for collections, whichever of those is delegated to.
+27. All of these on the left and right of the double equals. *(pause)*
+28. The meaning of the double equals operator varies with the type and the language.
 29. Rust has chosen this definition:
 30. Equals equals, equals, equals.
 
@@ -84,114 +84,116 @@ li { page-break-inside: avoid; }
 59. For functions that can fail, function calls are marked by a `?`.
 60. So when reading code, you can *see* where errors can happen.
 
-61. Rust is expressive,
-62. and by expressive I mean, you can take an idea, and write it in code, without much effort.
-63. And the converse as well, you can read the code, and grasp the idea, without much effort.
+61. Less pain, more clarity, better experience.
 
-64. Which of these two do you read more naturally?
-65. I'll tell you why: it's because when you buy coffee, the barista doesn't say, "That's dollars five, cents fifty".
-66. No they say, "That's five dollars fifty cents".
-67. What you *can* do in Rust, is implement behaviour over existing types, and create API like the second snippet.
-68. (pause) Why is this useful?
+62. Rust is expressive,
+63. and by expressive I mean, you can take an idea, and write it in code, without much effort.
+64. And the converse as well, you can read the code, and grasp the idea, without much effort.
 
-69. Let's say you're writing code to render markdown to a file.
-70. If you inline all the function calls, to understand it, you have to read from the middle out.
-71. You could break them over multiple lines, which looks a bit better.
-72. With Rust traits, you can write code like the third snippet.
-73. (pause) There's something about that empty space and alignment that makes it more readable, right?
-74. Many libraries provide aesthetic APIs because *it's possible*, so it makes learning to use them *correctly*, much easier.
+65. Which of these two do you read more naturally?
+66. I'll tell you why: it's because when you buy coffee, the barista doesn't say, "That's dollars five, cents fifty".
+67. No they say, "That's five dollars fifty cents".
+68. What you *can* do in Rust, is implement behaviour over existing types, and create API like the second snippet.
+69. (pause) Why is this useful?
 
-75. Cloning, or another word for deep copying.
+70. Let's say you're writing code to render markdown to a file.
+71. If you inline all the function calls, to understand it, you have to read from the middle out.
+72. You could break them over multiple lines, which looks a bit better.
+73. With Rust traits, you can write code like the third snippet.
+74. (pause) There's something about that empty space and alignment that makes it more readable, right?
+75. Many libraries provide aesthetic APIs because *it's possible*, so it makes learning to use them *correctly*, much easier.
 
-76. How do you spell, "clone"?
-77. "C-L-O-N-E"? or "serialize, deserialize"?
-78. No one says, "Dolly the sheep was serialize, deserialized. They say, Dolly the sheep was cloned."
-79. Software is harder to understand, when the expression of the idea is far away, from the idea itself.
-80. And it's also sad when the recommended answer is,
-81. "take this bit of memory, transform it to a different format, do the reverse transformation, and that's your clone".
-82. Why not just, "copy paste", right?
+76. Cloning, or another word for deep copying.
 
-83. There *has* been progress, some languages try to make things more expressive.
-84. How do you spell "clone"? "structuredClone".
-85. It's not guaranteed to do what you want though,
-86. like sometimes it shallow clones, sometimes it doesn't clone type info, and sometimes it fails.
-87. C#'s a bit funny, the docs say, "here's an interface, but don't use it!"
-88. Can we do better?
-89. Of course.
+77. How do you spell, "clone"?
+78. "C-L-O-N-E"? or "serialize, deserialize"?
+79. No one says, "Dolly the sheep was serialize, deserialized. They say, Dolly the sheep was cloned."
+80. Software is harder to understand, when the expression of the idea is far away, from the idea itself.
+81. And it's also sad when the recommended answer is,
+82. "take this bit of memory, transform it to a different format, do the reverse transformation, and that's your clone".
+83. Why not just, "copy paste", right?
 
-90. In Rust, clone is spelt `clone()`, and `clone()`, means clone.
-91. No missed type info, no failures, no surprises. *(high pitch)*
-92. When the representation matches your understanding, the expression is *perfect*.
+84. There *has* been progress, some languages try to make things more expressive.
+85. How do you spell "clone"? "structuredClone".
+86. It's not guaranteed to do what you want though,
+87. like sometimes it shallow clones, sometimes it doesn't clone type info, and sometimes it fails.
+88. C#'s a bit funny, the docs say, "here's an interface, but don't use it!"
+89. Can we do better?
+90. Of course.
 
-93. Because of Rust's clarity and expressiveness, code is more comprehendable.
-94. For semantics, you can read things once, and not have to go, it could be this or that. No, it's always, *the one*.
-95. When there are multiple paths, you know where you came from.
-96. When you want to say something, there's a word for it.
-97. Communicating through software is hard enough, so let's refine our language.
+91. In Rust, clone is spelt `clone()`, and `clone()`, means clone.
+92. No missed type info, no failures, no surprises. *(high pitch)*
+93. When the representation matches your understanding, the expression is *perfect*.
 
-98. Tooling. Rust has a really nice tooling ecosystem.
+94. Because of Rust's clarity and expressiveness, code is more comprehendable.
+95. For semantics, you can read things once, and not have to go, it could be this or that. No, it's always, *the one*.
+96. When there are multiple paths, you know where you came from.
+97. When you want to say something, there's a word for it.
+98. Communicating through software is hard enough, so let's refine our language.
 
-99. It ships with good standard tools, and there is *one* for each purpose.
-100. You know, it's really nice when I want to code, that I can just... code,
-101. and not have to install and learn the new tool of the day. Anyway.
+99. Tooling. Rust has a really nice tooling ecosystem.
 
-102. `cargo` is Rust's package manager, and it has really nice UX.
-103. When you tell it "run my application", it downloads dependencies, compiles your project, and runs your application.
-104. And it's cancellable *and* idempotent as well, so you can stop it, and re-run the command, and it will *pick up, where it left off*.
-105. Which takes away that mental check: before I run this, did I miss anything?
-106. It has support for workspaces, so you can manage multiple packages in a single repository.
-107. and it's easy to override dependencies, so you can test your code with a patched version of the dependency.
-108. That is, *so many* things that need to be done, *can* be done, in a supported way.
+100. It ships with good standard tools, and there is *one* for each purpose.
+101. You know, it's really nice when I want to code, that I can just... code,
+102. and not have to install and learn the new tool of the day. Anyway.
 
-109. Rust comes with a linter, called `clippy`.
-110. Clippy teaches you how to write code in the idiomatic Rust way, which can help to make code easier to read, and in some cases, how to avoid bugs.
-111. So it improves your code, *and!* it doesn't even use AI.
-112. It's really nice to be taught how to be eloquent with Rust, at a digestable pace.
-113. So in pull requests, more of the discussion can be focused on what we're writing, than on our ability to speak the language.
+103. `cargo` is Rust's package manager, and it has really nice UX.
+104. When you tell it "run my application", it downloads dependencies, compiles your project, and runs your application.
+105. And it's cancellable *and* idempotent as well, so you can stop it, and re-run the command, and it will *pick up, where it left off*.
+106. Which takes away that mental check: before I run this, did I miss anything?
+107. It has support for workspaces, so you can manage multiple packages in a single repository.
+108. and it's easy to override dependencies, so you can test your code with a patched version of the dependency.
+109. That is, *so many* things that need to be done, *can* be done, in a supported way.
 
-114. There are *many*, many more tools written by the community.
-115. They are generally easy to set up and integrate into your build pipeline.
-116. What's really nice about all this tooling is, when you run `cargo install $tool_name`, it just works... and *I'm using Windows*.
-117. You don't get an obscure error message, which, plus some keywords, becomes the unique identifier to a stack overflow question, whose solution doesn't work on your computer.
-118. So you spend far less time fiddling with tools, and more time building.
+110. Rust comes with a linter, called `clippy`.
+111. Clippy teaches you how to write code in the idiomatic Rust way, which can help to make code easier to read, and in some cases, how to avoid bugs.
+112. So it improves your code, *and!* it doesn't even use AI.
+113. It's really nice to be taught how to be eloquent with Rust, at a digestable pace.
+114. So in pull requests, more of the discussion can be focused on what we're writing, than on our ability to speak the language.
 
-119. Safety. Not the kind you're thinking of, but psychological safety.
+115. There are *many*, many more tools written by the community.
+116. They are generally easy to set up and integrate into your build pipeline.
+117. What's really nice about all this tooling is, when you run `cargo install $tool_name`, it just works... and *I'm using Windows*.
+118. You don't get an obscure error message, which, plus some keywords, becomes the unique identifier to a stack overflow question, whose solution doesn't work on your computer.
+119. So you spend far less time fiddling with tools, and more time building.
 
-120. Here's an interesting... observation: most of my project dependencies have a version of `0.something.something`.
-121. i.e. the major version is always `0`.
-122. and this reveals an interesting trait about the Rust community: people are so concerned about making a promise that they cannot keep, most would never publish a crate as `1.0`.
-123. Like, "aah, I might change the API in the next 20 years! So I'm not going to promise stability now."
-124. In this ecosystem, keeping dependencies up to date is not a burdensome chore.
-125. Periodically, I run `cargo upgrade --incompatible allow --recursive`, and, *again*, (pause) it, just, works.
-126. Stress levels and anxiety for maintenance go down, psychological safety goes up.
-127. So here is a thank you to the many of you, for keeping the promises that you did not make.
+120. Safety. Not the kind you're thinking of, but psychological safety.
 
-128. Finally, the experience beyond the code.
-129. When you interact with the community, like ask a question in the users forum, no matter how simple or complex it is, someone's going to answer, and they answer with empathy and intellect.
-130. There's no sentiment of, "Don't ask stupid questions! or, your question must be this good, before we answer you".
-131. So not only do you receive the answer, you actually *feel* helped.
+121. Here's an interesting... observation: most of my project dependencies have a version of `0.something.something`.
+122. i.e. the major version is always `0`.
+123. and this reveals an interesting trait about the Rust community: people are so concerned about making a promise that they cannot keep, most would never publish a crate as `1.0`.
+124. Like, "aah, I might change the API in the next 20 years! So I'm not going to promise stability now."
+125. In this ecosystem, keeping dependencies up to date is not a burdensome chore.
+126. Periodically, I run `cargo upgrade --incompatible allow --recursive`, and, *again*, (pause) it, just, works.
+127. Stress levels and anxiety for maintenance go down, psychological safety goes up.
+128. So here is a thank you to the many of you, for keeping the promises that you did not make.
 
-132. To summarize, this talk isn't intended to diminish the value of any other language.
-133. There are *decades* of learnings from so many languages.
+129. Finally, the experience beyond the code.
+130. When you interact with the community, like ask a question in the users forum, no matter how simple or complex it is, someone's going to answer, and they answer with empathy and intellect.
+131. There's no sentiment of, "Don't ask stupid questions! or, your question must be this good, before we answer you".
+132. So not only do you receive the answer, you actually *feel* helped.
 
-134. Not just what worked, but also what didn't work.
+133. To summarize, this talk isn't intended to diminish the value of any other language.
+134. There are *decades* of learnings from so many languages.
 
-135. Rust has the late starter advantage.
+135. Not just what worked, but also what didn't work.
 
-136. It has the privileged position of taking the patterns that work for today's applications, and not having to support the patterns that don't.
-137. Without the experimentation and lessons from all the other languages, there would *be* no Rust.
-138. So it is simply a progression of technology, not a pedestal to stand on.
+136. Rust has the late starter advantage.
 
-139. Imagine. I'd like you to,
+137. It has the privileged position of taking the patterns that work for today's applications, and not having to support the patterns that don't.
+138. Without the experimentation and lessons from all the other languages, there would *be* no Rust.
+139. So it is simply a progression of technology, not a pedestal to stand on.
 
-140. Imagine never seeing a null pointer exception ever again.
-141. Imagine reading code, and not needing to guess its meaning, because there's only one.
-142. Imagine upgrading all your software, and *it just works*.
-143. Imagine asking for help, and *being helped*.
+140. Imagine. I'd like you to,
 
-144. (pause). With Rust, you don't have to imagine, take away the hype, that's the reality.
-145. (glance up) Help. I'm `asyncing`. I need a lifetime. "move".
-146. That's why we call it, the execution pool.
+141. Imagine never seeing a null pointer exception ever again.
+142. Imagine reading code, and not needing to guess its meaning, because there's only one.
+143. Imagine upgrading all your software, and *it just works*.
+144. Imagine asking for help, and *being helped*.
 
-147. If you haven't tried Rust yet, give it a go, and enjoy the experience.
-148. Peace.
+145. (pause). With Rust, you don't have to imagine, take away the hype, that's the reality.
+146. (glance up) Help. I'm `asyncing`. I need a lifetime. "move".
+147. That's why we call it, the execution pool.
+
+148. If you haven't tried Rust yet, give it a go, and enjoy the experience.
+149. Peace.

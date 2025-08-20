@@ -584,6 +584,24 @@ take_cab_🚕()?;
 
 <!-- --- -->
 
+### Clarity: Errors &ndash; Progression
+
+**Sentinel values**
+
+1. ✅ Communicate success/failure
+
+**Exceptions**
+
+2. ✅ Compile time feedback
+3. ✅ Unambiguous code paths
+
+**Results**
+
+4. ✅ Low effort to define errors
+5. ✅ Show where errors come from
+
+<!-- --- -->
+
 ## Expressive
 
 #### Notes
