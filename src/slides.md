@@ -96,22 +96,6 @@ fn main() {
 
 ### Learning Rust
 
-```rust ignore [1-7]
-fn main() {
-    let s = String::from("hello");
-    let mut list = vec![s];
-    if let Some(s) = list.get_mut(0) {
-        s += " world";
-    }
-}
-```
-
-<img src="ferris_no.svg" class="fragment" style="width: 150px; height: 110px; position: fixed; left: 435px; top: 400px;" />
-
-<!-- --- -->
-
-### Learning Rust
-
 <img src="ferris_no.svg" style="width: 750px; height: 550px;" />
 
 #### Notes
@@ -584,21 +568,11 @@ take_cab_🚕()?;
 
 <!-- --- -->
 
-### Clarity: Errors &ndash; Progression
+### Clarity: Summary
 
-**Sentinel values**
+* ☝️ One term, one meaning
+* 🔎 Make things visible
 
-1. ✅ Communicate success/failure
-
-**Exceptions**
-
-2. ✅ Compile time feedback
-3. ✅ Unambiguous code paths
-
-**Results**
-
-4. ✅ Low effort to define errors
-5. ✅ Show where errors come from
 
 <!-- --- -->
 
@@ -980,23 +954,6 @@ cargo install $tool_name
 ### Closing Remarks: Imagine 2
 
 ```java [1-8]
-☕: new Data(123) == new Data(123)  // false
-#️⃣: new Data(123) == new Data(123)  // False
-🐍:     Data(123) == Data(123)      // False
-🌐: new Data(123) == new Data(123)  // false
-💎: Data.new(123) == Data.new(123)  // false
-🦫: Data {v: 123} == Data {v: 123}  // ✅ true
-➕:       { 123 } == { 123 }        // ✅ true / compile error
-🦀:     Data(123) == Data(123)      // ✅ true / compile error
-```
-
-<img class="fragment" src="ferris_no.svg" style="width: 270px; position: absolute; bottom: 130px; right: 240px;" />
-
-<!-- --- -->
-
-### Closing Remarks: Imagine 3
-
-```java [1-8]
 ☕: mvn versions:use-latest-versions
 #️⃣: dotnet outdated --upgrade
 🐍: pip-review --auto
@@ -1011,13 +968,13 @@ cargo install $tool_name
 
 <!-- --- -->
 
-### Closing Remarks: Imagine 4
+### Closing Remarks: Imagine 3
 
 <img src="imagine_help_no_words.png" width="640px" height="480px" />
 
 <!-- --- -->
 
-### Closing Remarks: Imagine 4
+### Closing Remarks: Imagine 3
 
 <img src="imagine_help.png" width="640px" height="480px" />
 
