@@ -613,11 +613,15 @@ let duration_2 = 3.minutes()
 
 ### Expressive: Example 2
 
+<div class="fragment">
+
 ```rust ignore [1-3]
 let result =
     fs::write(render(parse("markdown", parse_opts), render_opts), path)?;
 //  4         3      2     1           2            3             4
 ```
+
+</div>
 
 <div class="fragment">
 
