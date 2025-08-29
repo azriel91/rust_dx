@@ -1044,6 +1044,75 @@ cargo install $tool_name
 [🎨 azriel.im/dot_ix](https://azriel.im/dot_ix/)
 
 
+## Q & A: Learning
+
+<!-- --- -->
+
+### Learning: Skill / Time Graph
+
+![](learning_skill_graph_01_empty.svg)
+
+<!-- --- -->
+
+### Learning: First Language
+
+![](learning_skill_graph_02_first_lang.svg)
+
+<!-- --- -->
+
+### Learning: First Language
+
+![](learning_skill_graph_03_first_lang_time.svg)
+
+<!-- --- -->
+
+### Learning: Other Languages
+
+![](learning_skill_graph_04_other_languages.svg)
+
+<!-- --- -->
+
+### Learning: Other Languages
+
+![](learning_skill_graph_05_other_languages_1_week.svg)
+
+<!-- --- -->
+
+### Learning: Other Languages
+
+![](learning_skill_graph_06_other_languages_1_month.svg)
+
+<!-- --- -->
+
+### Learning: Rust
+
+![](learning_skill_graph_04_other_languages.svg)
+
+<!-- --- -->
+
+### Learning: Rust
+
+![](learning_skill_graph_07_rust_01_start.svg)
+
+<!-- --- -->
+
+### Learning: Rust
+
+![](learning_skill_graph_07_rust_02_3_months.svg)
+
+<!-- --- -->
+
+### Learning: Rust
+
+![](learning_skill_graph_07_rust_03_1_year.svg)
+
+<!-- --- -->
+
+### Learning: Rust
+
+![](learning_skill_graph_07_rust_04_beyond.svg)
+
+
 ## Q & A: Compiler Feedback
 
 <!-- --- -->
